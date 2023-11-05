@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poem Generator</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="poem.js">  </script>
+    
+
+</head>
+<body>
+    <style>
+    .result-box {
+    background-color: #ffcc99; 
+    padding: 10px; 
+    border: 1px solid #ff6600; 
+    border-radius: 5px; 
+    font-family: Arial, sans-serif; 
+    width: 240px;
+    height: 150px;
+    }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        #poem {
+            margin-top: 20px;
+        }
+        .wrapper {
+            background-color: rgb(240, 179, 117); 
+             padding: 20px; 
+             width: fit-content;
+        }
+    </style>
+  </head>
+  <body>
+    
+    <h1>Poem Generator App</h1>
+    <div class="wrapper">
+        <div class="content-container">
+    <div>
+      <label for="tone-select">Select a tone:</label>
+      <select id="Tone">
+        <option value="upbeat">Upbeat</option>
+        <option value="melancholy">Melancholy</option>
+      </select>
+    </div>
+    <div>
+      <label for="verse-select">Select a verse:</label>
+      <select id="verse-select">
+        <option value="free-form">Free form</option>
+        <option value="standard">Standard</option>
+      </select>
+    </div>
+    <div>
+      <label for="verse-text">Enter your own poem or generate: </label> 
+      <textarea id="verse-text"></textarea>
+    </div>
+    <button id="generate-button">Generate</button>
+    
+</div>
+</div>
+<div id="poem" class="result-box"></div>
+</body>
+</html>
