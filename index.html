@@ -1,76 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poem Generator</title>
+<html>
+  <head>
+    <title>Poem and Song</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="jquery-3.7.1.js"></script>
-    <script type="text/javascript" src="poem.js">  </script>
-    
-
-</head>
-<body>
-    <style>
-    .result-box {
-    background-color: #ffcc99; 
-    padding: 10px; 
-    border: 1px solid #ff6600; 
-    border-radius: 5px; 
-    font-family: Arial, sans-serif; 
-    width: 240px;
-    height: 150px;
-    }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        select, textarea {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        button {
-            margin-top: 20px;
-        }
-
-        #poem {
-            margin-top: 20px;
-        }
-        .wrapper {
-            background-color: rgb(240, 179, 117); 
-             padding: 20px; 
-             width: fit-content;
-        }
-    </style>
+    <script type="text/javascript" src="poem.js"></script>
   </head>
+  <style>
+    #container {
+      display: flex;
+    }
+
+    #letter {
+      flex: 3 1 450px;
+      background-color: rgb(133, 78, 121);
+      font-family: cursive;
+    }
+
+    #wrapper {
+      background-color: rgb(175, 192, 76);
+      padding: 20px;
+      flex: 1;
+    }
+
+    .writersblock {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+  </style>
   <body>
-    
-    <h1>Poem Generator App</h1>
-    <div class="wrapper">
-        <div class="content-container">
-    <div>
-      <label for="tone-select">Select a tone:</label>
-      <select id="Tone">
-        <option value="upbeat">Upbeat</option>
-        <option value="melancholy">Melancholy</option>
-      </select>
+    <h1>Poem and Song Generator</h1>
+    <div id="container">
+      <div id="letter"></div>
+      <div id="wrapper">
+        <div id="dashboard">
+          <div class="writersblock">
+            <label for="titles">Enter Poem/Song Title </label>
+            <input
+              name="name_titles"
+              type="text"
+              id="id_titles"
+              value=""
+              maxlength="25"
+              size="15"
+            />
+            <label for="id_receiverName"> By </label>
+            <input
+              type="text"
+              id="id_receiverName"
+              name="name_receiverName"
+              value=""
+              maxlength="25"
+              size="15"
+            />
+            <button id="id_setTitle" onclick="titleLetter()">Add</button>
+          </div>
+
+          <div class="writersblock">
+            <label for="freeform">Enter the text for your line:</label> OR Generate between
+            <button id="id_randomfill" onclick="randomfillParagraph()">Upbeat</button>
+            <button id="id_randomfill" onclick="randomfillParagraphSad()">Melancholy</button>
+            <textarea
+              id="id_freeform"
+              name="name_freeform"
+              rows="4"
+              cols="50"
+            ></textarea>
+
+            <label for="paragraphNum"> Paragraph Number </label>
+            <input
+              type="text"
+              id="id_paragraphNumToCreate"
+              name="name_paragraphNumberToCreate"
+              value="1"
+              maxlength="1"
+              size="1"
+            />
+            <button id="id_createpara1" onclick="createParagraph()">Create</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <label for="verse-select">Select a verse:</label>
-      <select id="verse-select">
-        <option value="free-form">Free form</option>
-        <option value="standard">Standard</option>
-      </select>
-    </div>
-    <div>
-      <label for="verse-text">Enter your own poem or generate: </label> 
-      <textarea id="verse-text"></textarea>
-    </div>
-    <button id="generate-button">Generate</button>
-    
-</div>
-</div>
-<div id="poem" class="result-box"></div>
-</body>
+  </body>
 </html>
